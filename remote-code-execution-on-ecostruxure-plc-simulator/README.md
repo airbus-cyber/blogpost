@@ -12,7 +12,7 @@ In this document, we will describe the process of how an attacker can remotely t
 
 This study was conducted on [EcoStruxure ControlExpert V14.1 by Schneider Electric](https://www.se.com/uk/en/product-range-presentation/548-ecostruxure%E2%84%A2-control-expert/#tabs-top). This version was up to date while writing this article. We also tested that the vulnerabilities described here are also present in older UnityPro versions. It’s important to mention that the vulnerabilities highlighted here, are certainly present in other manufacturers’ ICS solution.
 
-This article is based on the same concept previously described in [“Applying a Stuxnet Type Attack to a Modicon PLC”](https://github.com/airbus-cyber/blogpost/tree/main/blogpost/applying-a-stuxnet-type-attack-to-a-modicon-plc) publication. We can consider this research as the next logical step of the “Stuxnet Type attack” study.
+This article is based on the same concept previously described in [“Applying a Stuxnet Type Attack to a Modicon PLC”](https://github.com/airbus-cyber/blogpost/tree/main/applying-a-stuxnet-type-attack-to-a-modicon-plc) publication. We can consider this research as the next logical step of the “Stuxnet Type attack” study.
 
 Schneider Electric reacted in a timely both to confirm these vulnerabilities and to provide fixes for them. They published a security notification on November 8th 2020, which is available [here](https://www.se.com/ww/en/download/document/SEVD-2020-315-07/) and includes information about how to download the fixes.
 
@@ -38,7 +38,7 @@ When we want to run our automation program on a Simulated PLC, we have to do sim
 * Upload program
 * Run program
 
-In our [previous article](https://github.com/airbus-cyber/blogpost/tree/main/blogpost/applying-a-stuxnet-type-attack-to-a-modicon-plc), we showed that automation program is transformed into ARM bytecode and executed without restriction on the PLC. Let’s deep dive into the ControlExpert compilation process in order to figure out if we have the same weakness on the simulated PLC. 
+In our [previous article](https://github.com/airbus-cyber/blogpost/tree/main/applying-a-stuxnet-type-attack-to-a-modicon-plc), we showed that automation program is transformed into ARM bytecode and executed without restriction on the PLC. Let’s deep dive into the ControlExpert compilation process in order to figure out if we have the same weakness on the simulated PLC. 
 
 # Compilation process
 
@@ -80,7 +80,7 @@ Our breakpoint is reached! If we look at EAX register value, and report it on ou
 
 *Figure 7: CIntel32Engine vftable*
 
-We can see that the class name is *CIntel32Engine*. So, we can imagine that our automation code will be converted to x86 machine code. And the simulated PLC will certainly execute our code natively like in the [PLC cases](https://github.com/airbus-cyber/blogpost/tree/main/blogpost/applying-a-stuxnet-type-attack-to-a-modicon-plc). We renamed the compilation function to CIntel32Engine_compile.
+We can see that the class name is *CIntel32Engine*. So, we can imagine that our automation code will be converted to x86 machine code. And the simulated PLC will certainly execute our code natively like in the [PLC cases](https://github.com/airbus-cyber/blogpost/tree/main/applying-a-stuxnet-type-attack-to-a-modicon-plc). We renamed the compilation function to CIntel32Engine_compile.
 
 
 # Supported architectures
@@ -321,7 +321,7 @@ if __name__ == '__main__':
 
 # Conclusion
 
-In our previous article [“Stuxnet Type attack”](https://github.com/airbus-cyber/blogpost/tree/main/blogpost/applying-a-stuxnet-type-attack-to-a-modicon-plc), we demonstrated that the Schneider Electric PLC simulator executes the automation program in unconstrained x86 native code. This allows an attacker to have a Remote Code Execution on a machine where PLC Simulator is running.
+In our previous article [“Stuxnet Type attack”](https://github.com/airbus-cyber/blogpost/tree/main/applying-a-stuxnet-type-attack-to-a-modicon-plc), we demonstrated that the Schneider Electric PLC simulator executes the automation program in unconstrained x86 native code. This allows an attacker to have a Remote Code Execution on a machine where PLC Simulator is running.
 
 To protect against motivated attackers, we must apply best security practices like:
 
