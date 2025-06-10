@@ -1,6 +1,6 @@
 Why not catching exception hurts security products?
 ===================================================
-*A case study with Cybereason EDR (CVE-2020-26562& CVE-2020-26871)*
+*A case study with Cybereason EDR (CVE-2020-26562 & CVE-2020-26871)*
 ---------------------------------------------------------------------------------------------
 
 *by Nicolas Delhaye, Vulnerability Researcher [@_Homeostasie_](https://x.com/_homeostasie_)*
