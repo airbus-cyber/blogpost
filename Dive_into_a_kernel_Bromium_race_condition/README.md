@@ -1,6 +1,6 @@
 Dive into a kernel Bromium race condition
 =========================================
-*CVE-2019-1856 (OOB kernel memory leak or denial of service)*
+*CVE-2019-18567 (OOB kernel memory leak or denial of service)*
 --------------------------------------------------------------
 
 *by Nicolas Delhaye, Vulnerability Researcher [@_Homeostasie_](https://x.com/_homeostasie_)*
